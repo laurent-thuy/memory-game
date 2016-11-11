@@ -1,4 +1,4 @@
-module Meta exposing (meta)
+module Style.Meta exposing (meta)
 
 import VirtualDom exposing (node)
 import Html.Attributes exposing (attribute)
