@@ -1,13 +1,13 @@
-module View exposing (view)
+module Game.View exposing (view)
 
-import Html exposing (Html, div, br, h1, text)
+import Html exposing (Html, div, br, h1, text, hr)
 import Html.Events exposing (onClick)
 import Html.Attributes exposing (class, style)
-import Style.W3css exposing (w3css, w3Colors)
+import Style.W3css exposing (w3css)
 import Style.Meta exposing (meta)
-import Model exposing (Model)
-import Update exposing (Msg(..))
-import Tile exposing (Tile, TileState(..))
+import Game.Model exposing (Model)
+import Game.Update exposing (Msg(..))
+import Game.Tile exposing (Tile, TileState(..))
 import List.Extra exposing (groupsOf)
 
 
@@ -22,6 +22,7 @@ view model =
         , br [] []
         , div [ class "w3-content" ]
             [ h1 [] [ text "Memory Game" ]
+            , hr [] []
             , br [] []
             , br [] []
             , div [] (tilesToDivs model.tiles)

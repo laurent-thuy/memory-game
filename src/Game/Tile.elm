@@ -1,4 +1,4 @@
-module Tile exposing (Tile, TileState(..), dummyTile)
+module Game.Tile exposing (Tile, TileState(..), dummyTile)
 
 
 type TileState

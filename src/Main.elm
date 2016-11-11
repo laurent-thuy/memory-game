@@ -1,27 +1,19 @@
 module Main exposing (..)
 
 import Html.App as App
-import Tile exposing (Tile, TileState(..), dummyTile)
-import Model exposing (Model)
-import View exposing (view)
-import Update exposing (update, Msg(..))
-import Style.W3css exposing (w3Colors)
+import Game.Tile exposing (Tile, TileState(..), dummyTile)
+import Game.Model exposing (Model)
+import Game.View exposing (view)
+import Game.Update exposing (update, Msg(..))
 import Time
-
-
--- colors
--- TODO    randomize colors order
-
-
-colors : List String
-colors =
-    w3Colors
+import Random
+import Style.Colors exposing (colorsGenerator)
 
 
 init : ( Model, Cmd Msg )
 init =
     ( { tiles = createTiles }
-    , Cmd.none
+    , Random.generate NewColors colorsGenerator
     )
 
 
@@ -33,7 +25,6 @@ createTiles =
             (\index tile ->
                 { tile | index = index }
             )
-        |> List.map2 (\color tile -> { tile | color = color }) colors
 
 
 
